@@ -1,0 +1,64 @@
+<div style="
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4cfd8;
+">
+
+  <div style="text-align: center; max-width: 600px; width: 100%;">
+
+    <h1 style="color:#0a2a66; font-size:46px;">
+      Simple Task Manager
+    </h1>
+
+    <p>
+      You can add your daily tasks here.<br>
+      Let’s make our lives easy and productive.<br>
+      Let’s win together every day.
+    </p>
+
+    <p style="font-size:26px;">💪💪💪</p>
+
+    <div style="margin-bottom:20px;">
+      <input
+        type="text"
+        [(ngModel)]="newTask"
+        placeholder="Enter your task"
+        style="padding:10px; width:65%;"
+      />
+      <button (click)="addTask()">Add Task</button>
+    </div>
+
+    <ul style="list-style:none; padding:0;">
+      <li
+        *ngFor="let task of tasks"
+        style="
+          margin-bottom:10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        "
+      >
+        <span>{{ task.title }}</span>
+
+        <button
+          (click)="deleteTask(task._id)"
+          style="
+            background-color: #0a2a66;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
